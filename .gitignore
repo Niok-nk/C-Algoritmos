@@ -1,0 +1,38 @@
+# Dependencias
+node_modules/
+
+# Build output
+dist/
+build/
+
+# Soluciones (se crean localmente, no se versiona)
+**/solucion.ts
+
+# TypeScript cache
+*.tsbuildinfo
+
+# Variables de entorno
+.env
+.env.local
+
+# Logs
+*.log
+npm-debug.log*
+
+# Editor
+.vscode/
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+
+# Windows
+Thumbs.db
+Desktop.ini
+
+# PDF
+AlgorithmsNotesForProfessionals.pdf
+
+# agente
+agente.md
