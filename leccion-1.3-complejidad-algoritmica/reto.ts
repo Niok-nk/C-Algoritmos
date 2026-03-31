@@ -1,3 +1,5 @@
+export {}; // Aísla este archivo como módulo independiente
+
 // =============================================
 // RETO 1.3 — El Buscador de Pares
 // Dificultad: 🟡 Medio
@@ -27,7 +29,14 @@
 
 // TODO: Versión 1 - Fuerza bruta O(n²)
 function dosSumaFuerzaBruta(lista: number[], suma: number): [number, number] | null {
-
+    for (let i = 0; i < lista.length; i++){
+        for (let j = i + 1; j < lista.length; j++){
+            if (lista[i] + lista[j] === suma){
+                return [i, j];
+            }
+        }
+    }
+    return null;
 }
 
 // TODO: Versión 2 - Usando Map O(n)
@@ -35,7 +44,16 @@ function dosSumaFuerzaBruta(lista: number[], suma: number): [number, number] | n
 //        Si el complemento YA EXISTE en el Map, encontraste el par.
 //        Si no, guarda num en el Map y continúa.
 function dosSumaEficiente(lista: number[], suma: number): [number, number] | null {
-
+    const vista = new Map<number, number>();//guarda los numeros que ya hemos visto
+    for (let i = 0; i < lista.length; i++){
+        const num = lista[i];
+        const complemento = suma - num;
+        if (vista.has(complemento)){
+            return [vista.get(complemento)!, i];
+        }
+        vista.set(num, i);
+    }
+    return null;
 }
 
 // Pruebas:
