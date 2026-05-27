@@ -14,15 +14,16 @@ export {};
 //  3. Siempre expresar el PEOR CASO (a menos que se diga lo contrario)
 
 // ─────────────────────────────────────────────────────────────
-// Las 7 complejidades más comunes (de mejor a peor):
+// Las 8 complejidades más comunes (de mejor a peor):
 //
-//  O(1)        → Constante     — siempre igual, sin importar n
-//  O(log n)    → Logarítmico   — divide el problema a la mitad
-//  O(n)        → Lineal        — proporcional al tamaño
+//  O(1)        → Constante       — siempre igual, sin importar n
+//  O(log n)    → Logarítmico     — divide el problema a la mitad
+//  O(√n)       → Raíz cuadrada   — itera hasta la raíz de n
+//  O(n)        → Lineal          — proporcional al tamaño
 //  O(n log n)  → Linerogarítmico — típico de buenos sorts
-//  O(n²)       → Cuadrático    — doble bucle anidado
-//  O(2ⁿ)       → Exponencial   — duplica trabajo con cada elemento
-//  O(n!)       → Factorial     — todas las permutaciones posibles
+//  O(n²)       → Cuadrático      — doble bucle anidado
+//  O(2ⁿ)       → Exponencial     — duplica trabajo con cada elemento
+//  O(n!)       → Factorial       — todas las permutaciones posibles
 // ─────────────────────────────────────────────────────────────
 
 // ─────────────────────────────────────────────────────────────
@@ -69,6 +70,34 @@ const ordenado = [1, 3, 5, 7, 9, 11, 13, 15, 17, 19];
 console.log("Binaria busca 11:", busquedaBinaria(ordenado, 11)); // → 5 (índice)
 console.log("Binaria busca 6: ", busquedaBinaria(ordenado, 6));  // → -1 (no existe)
 console.log("Binaria busca 19: ", busquedaBinaria(ordenado, 19));
+// ─────────────────────────────────────────────────────────────
+// O(√n) — Raíz cuadrada
+// ─────────────────────────────────────────────────────────────
+// El bucle itera hasta la raíz cuadrada de n, no hasta n.
+// Cada iteración es una operación, pero el número de iteraciones
+// crece con √n, no con n. Ejemplo: suma de divisores de un número.
+// ─────────────────────────────────────────────────────────────
+// Para n=36, los divisores son 1, 2, 3, 4, 6, 9, 12, 18, 36.
+// Siempre vienen en pares: (1,36), (2,18), (3,12), (4,9), (6,6).
+// Solo necesitamos llegar hasta √n para encontrar todos los pares.
+function sumaDivisores(n: number): number {
+  if (n <= 0) return 0;
+  let suma = 0;
+  for (let i = 1; i * i <= n; i++) { // solo hasta √n
+    if (n % i === 0) {
+      suma += i;           // i es divisor
+      const par = n / i;   // su pareja
+      if (par !== i) suma += par; // evitar contar √n dos veces
+    }
+  }
+  return suma;
+}
+
+console.log("\nSuma de divisores (O(√n)):");
+console.log("sumaDivisores(36):", sumaDivisores(36)); // 1+2+3+4+6+9+12+18+36 = 91
+console.log("sumaDivisores(12):", sumaDivisores(12)); // 1+2+3+4+6+12 = 28
+console.log("sumaDivisores(7):", sumaDivisores(7));   // 1+7 = 8 (primo)
+
 // ─────────────────────────────────────────────────────────────
 // O(n log n) — Linerogarítmico
 // ─────────────────────────────────────────────────────────────
@@ -119,8 +148,9 @@ console.log("\nFib(10) exponencial:", fibExponencial(10)); // 55
 // Tabla visual de impacto
 // ─────────────────────────────────────────────────────────────
 console.log("\n=== Operaciones según complejidad ===");
-console.log("n\t\tO(1)\tO(log n)\tO(n)\tO(n²)");
+console.log("n\t\tO(1)\tO(log n)\tO(√n)\tO(n)\tO(n²)");
 for (const n of [10, 100, 1000]) {
   const logN = Math.round(Math.log2(n));
-  console.log(`${n}\t\t1\t${logN}\t\t${n}\t${n * n}`);
+  const raiz = Math.round(Math.sqrt(n));
+  console.log(`${n}\t\t1\t${logN}\t\t${raiz}\t${n}\t${n * n}`);
 }
