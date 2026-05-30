@@ -1,4 +1,4 @@
-export {};
+export { };
 // =============================================
 // RETO 1.4 — Clasificador de Complejidades
 // Dificultad: 🟡 Medio
@@ -19,20 +19,30 @@ export {};
 // ─────────────────────────────────────────────
 
 // TODO: implementa y anota la complejidad en el comentario
-// Complejidad: O( creo que es lineal )
+// Complejidad: O(n)
 function esPrimo(n: number): boolean {
     if (n < 2) return false;
-    for (let i = 2; i < n; i++){
+    for (let i = 2; i < n; i++) {
         if (n % i === 0) return false;
     }
     return true;
 }
+// Complejidad : O(√n)
+function esPrimo2(n: number): boolean {
+    if (n < 2) return false;
+    for (let i = 2; i * i <= n; i++){
+        if (n % i === 0) return false;
+    }
+    return true;
+}
+
 // Pruebas:
 console.log("--- esPrimo ---");
-console.log(esPrimo(2));   // true
-console.log(esPrimo(7));   // true
-console.log(esPrimo(9));   // false (3 × 3)
-console.log(esPrimo(1));   // false (por definición, 1 no es primo)
+console.log(esPrimo2(2));   // true
+console.log(esPrimo2(7));   // true
+console.log(esPrimo2(9));   // false (3 × 3)
+console.log(esPrimo2(4));   // false 
+console.log(esPrimo2(1));   // false (por definición, 1 no es primo)
 // ─────────────────────────────────────────────
 // FUNCIÓN B: Encontrar el par de suma más eficiente
 // Dado un arreglo ORDENADO y un objetivo,
@@ -48,22 +58,22 @@ console.log(esPrimo(1));   // false (por definición, 1 no es primo)
 // ─────────────────────────────────────────────
 
 // TODO: implementa y anota la complejidad en el comentario
-// Complejidad: O( ??? )
+// Complejidad: O(n)
 function dosPunteros(arr: number[], objetivo: number): [number, number] | null {
     let inicio = 0;
-    let fin = arr.length - 1;    
-    while(inicio <= fin ){
+    let fin = arr.length - 1;
+    while (inicio <= fin) {
         const suma = arr[inicio] + arr[fin];
-        if (suma === objetivo){
+        if (suma === objetivo) {
             return [arr[inicio], arr[fin]]
-        }   else if (suma < objetivo){
-            inicio++;           
-            }else{
-                fin--;
-            }
+        } else if (suma < objetivo) {
+            inicio++;
+        } else {
+            fin--;
+        }
     }
     return null;
-    
+
 
 }
 console.log("--- dosPunteros ---");
@@ -87,7 +97,10 @@ console.log(dosPunteros([1, 2, 3], 10));          // null
 // TODO: implementa y anota la complejidad en el comentario
 // Complejidad: O( ??? )
 function contarUnicos(arr: number[]): number {
-
+    const vista = new Set<number>();
+    for(let i = 0; i < arr.length; i++){
+        
+    }
 }
 
 console.log("--- contarUnicos ---");
