@@ -59,18 +59,22 @@ console.log(encontrarMaximo([100] ));              // 100
 // ─────────────────────────────────────────────
 
 // TODO: implementa y anota las notaciones
-// O(?)
-// Ω(?)
-// ¿Es Θ? (?)
+// O(n)
+// Ω(1)
+// ¿Es Θ? (no)
 function estaOrdenado(arr: number[]): boolean {
-
+  if (arr.length === 0) return true;
+  for (let i = 1; i < arr.length; i++) {
+    if (arr[i - 1] > arr[i]) return false;
+  }
+  return true;
 }
 
 console.log("--- estaOrdenado ---");
-// console.log(estaOrdenado([1, 3, 5, 8]));   // true
-// console.log(estaOrdenado([1, 5, 3, 8]));   // false
-// console.log(estaOrdenado([3]));             // true
-// console.log(estaOrdenado([]));              // true (vacío está ordenado)
+console.log(estaOrdenado([1, 3, 5, 8]));   // true
+console.log(estaOrdenado([1, 5, 3, 8]));   // false
+console.log(estaOrdenado([3]));             // true
+console.log(estaOrdenado([]));              // true (vacío está ordenado)
 
 // ─────────────────────────────────────────────
 // FUNCIÓN C: Determinar si Θ aplica o no
