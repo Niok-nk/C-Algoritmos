@@ -16,7 +16,7 @@ export {};
 // FRAGMENTO 1
 // ─────────────────────────────────────────────
 // TODO: anota la complejidad
-// Complejidad: O(???)
+// Complejidad: O(n²)
 function fragmento1(n: number): void {
   for (let i = 0; i < n; i++) {
     for (let j = 0; j < n; j++) {
@@ -29,7 +29,7 @@ function fragmento1(n: number): void {
 // FRAGMENTO 2
 // ─────────────────────────────────────────────
 // TODO: anota la complejidad
-// Complejidad: O(???)
+// Complejidad: O(log n)
 function fragmento2(n: number): void {
   for (let i = 1; i < n; i *= 2) {
     console.log(i);
@@ -40,7 +40,7 @@ function fragmento2(n: number): void {
 // FRAGMENTO 3
 // ─────────────────────────────────────────────
 // TODO: anota la complejidad
-// Complejidad: O(???)
+// Complejidad: O(n)
 function fragmento3(n: number): void {
   for (let i = 0; i < n; i++) {
     console.log(i);
@@ -55,7 +55,7 @@ function fragmento3(n: number): void {
 // Recibe una matriz cuadrada de n × n
 // ─────────────────────────────────────────────
 // TODO: anota la complejidad
-// Complejidad: O(???)
+// Complejidad: O(n²)
 function fragmento4(matriz: number[][]): void {
   const n = matriz.length;
   for (let i = 0; i < n; i++) {
@@ -70,7 +70,7 @@ function fragmento4(matriz: number[][]): void {
 // Recibe un arreglo ORDENADO y un objetivo
 // ─────────────────────────────────────────────
 // TODO: anota la complejidad
-// Complejidad: O(???)
+// Complejidad: O(log n)
 function fragmento5(arr: number[], objetivo: number): number {
   let inicio = 0;
   let fin = arr.length - 1;
@@ -88,7 +88,7 @@ function fragmento5(arr: number[], objetivo: number): number {
 // Un arreglo de tamaño n, otro de tamaño m
 // ─────────────────────────────────────────────
 // TODO: anota la complejidad
-// Complejidad: O(???)
+// Complejidad: O(n)
 function fragmento6(a: number[], b: number[]): void {
   for (const x of a) { console.log(x); }
   for (const y of b) { console.log(y); }
@@ -98,7 +98,7 @@ function fragmento6(a: number[], b: number[]): void {
 // FRAGMENTO 7 — Bucle con límite fijo
 // ─────────────────────────────────────────────
 // TODO: anota la complejidad
-// Complejidad: O(???)
+// Complejidad: O(1)
 function fragmento7(arr: number[]): void {
   for (let i = 0; i < 10 && i < arr.length; i++) {
     console.log(arr[i]);
