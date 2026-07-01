@@ -40,6 +40,52 @@ export {};
 // Altura = 3 (niveles 0→1→2→3, son 4 niveles, altura = 3)
 
 // ─────────────────────────────────────────────────────────────
+// ¿Para qué sirven los árboles en la vida real?
+// ─────────────────────────────────────────────────────────────
+//
+// 1. SISTEMA DE ARCHIVOS (File System):
+//    Tu computadora organiza carpetas y archivos como un árbol.
+//    C:\Usuarios\Niok\Documentos\ es una rama del árbol.
+//    Cada carpeta es un nodo con hijos (subcarpetas/archivos).
+//    Las hojas son los archivos (no contienen más archivos).
+//
+// 2. DOM (Document Object Model):
+//    Cuando abres una página web, el navegador construye un
+//    árbol con cada elemento HTML. <html> es la raíz, <body>
+//    es su hijo, y los <div>, <p>, <span> son ramas.
+//    JavaScript recorre este árbol para leer o modificar la página.
+//
+// 3. INTELIGENCIA ARTIFICIAL (Árboles de decisión):
+//    Un árbol de decisión hace preguntas en cada nodo y
+//    según la respuesta toma una rama. Ej: ¿el cliente
+//    tiene >30 años? Sí → rama derecha (ofrecer tarjeta).
+//    No → rama izquierda (no ofrecer). Así funcionan muchos
+//    sistemas de recomendación y clasificación.
+//
+// 4. BASES DE DATOS (Índices B-Tree):
+//    MySQL, PostgreSQL y la mayoría de bases de datos usan
+//    árboles para indexar datos. Cuando haces SELECT WHERE id=5,
+//    la base de datos recorre un árbol en vez de revisar fila
+//    por fila. Esto convierte búsquedas O(n) en O(log n).
+//
+// 5. COMPRESIÓN DE ARCHIVOS (Huffman):
+//    El algoritmo ZIP/PNG usa un árbol (árbol de Huffman) para
+//    asignar códigos cortos a los caracteres más frecuentes y
+//    códigos largos a los menos frecuentes, reduciendo el tamaño.
+//
+// 6. RUTAS Y MAPAS (GPS, videojuegos):
+//    Algoritmos como A* y Dijkstra (que veremos en el Módulo 3)
+//    exploran un árbol de posibles rutas para encontrar el
+//    camino más corto entre dos puntos. Cada nodo es una
+//    ubicación, cada rama es un camino posible.
+//
+// 7. COMPILADORES E INTÉRPRETES (AST — Abstract Syntax Tree):
+//    Cuando TypeScript compila tu código, primero lo convierte
+//    en un árbol sintáctico. Cada nodo es una operación
+//    (suma, if, función) y sus hijos son los operandos.
+//    Luego el compilador recorre ese árbol para generar código.
+
+// ─────────────────────────────────────────────────────────────
 // Implementación de un Nodo en TypeScript
 // ─────────────────────────────────────────────────────────────
 
