@@ -152,6 +152,49 @@ class ArbolBST<T extends number | string> {
     this.insertarNodo(this.raiz, nuevoNodo);
   }
 
+  // ── ¿Cómo funciona insertarNodo? ─────────────────────────
+  //
+  // Este método privado es el CORAZÓN del BST.
+  // Usa toda la estructura de la clase para ordenar:
+  //
+  //   1. Recibe el nodo ACTUAL (donde estamos mirando)
+  //      y el nodo NUEVO (el que queremos colocar).
+  //
+  //   2. Compara sus valores:
+  //      nuevo < actual → debe ir a la IZQUIERDA
+  //      nuevo ≥ actual → debe ir a la DERECHA
+  //
+  //   3. Revisa si hay espacio libre en esa rama:
+  //      Si NO hay hijo → coloca el nuevo aquí.
+  //      Si YA hay hijo → repite el proceso (recursión)
+  //        llamándose a sí mismo con ese hijo.
+  //
+  // ── Traza visual con insertar(6) en el árbol: ───────────
+  //
+  //          (8)          ← this.raiz
+  //         /   \
+  //       (3)   (10)
+  //      /   \
+  //    (1)   (?) ← 6 se compara aquí
+  //
+  //  insertar(6):
+  //    1. ¿Árbol vacío? No (raíz = 8)
+  //    2. Llama a insertarNodo(8, 6)
+  //       → 6 < 8 → izquierda
+  //       → ¿8.izquierda vacío? No (está 3)
+  //       → insertarNodo(3, 6)  ← SE LLAMA A SÍ MISMA (recursión)
+  //         → 6 < 3? No → derecha
+  //         → ¿3.derecha vacío? Sí → 3.derecha = 6 ✅
+  //
+  //  La clase completa es la que permite esto:
+  //    - this.raiz       → desde dónde empezar
+  //    - nodoActual.izquierda/derecha → hacia dónde ir
+  //    - this.insertarNodo() → repetir el proceso
+  //
+  //  Cada nodo se ordena automáticamente por comparación.
+  //  No hay un "algoritmo de ordenamiento" externo.
+  //  El árbol SE ORDENA SOLO al insertar.
+
   private insertarNodo(nodoActual: NodoBST<T>, nuevoNodo: NodoBST<T>): void {
     if (nuevoNodo.valor < nodoActual.valor) {
       // Va a la izquierda
