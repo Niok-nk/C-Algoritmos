@@ -193,6 +193,39 @@ class ArbolBST<T extends number | string> {
 const arbol = new ArbolBST<number>();
 
 console.log("=== Insertando valores: 8, 3, 10, 1, 6, 14, 4, 7, 13 ===");
+
+// 📘 NOTA TYPESCRIPT — forEach y arrow functions (=>)
+// ============================================================
+//
+// forEach es un método de los arreglos.
+// Ejecuta una función por CADA elemento del arreglo.
+//
+// Se lee de derecha a izquierda:
+//
+//   [8, 3, 10, ...].forEach( v => arbol.insertar(v) )
+//     ↑                ↑        ↑                ↑
+//     "del arreglo"  "para    "toma ese      "insértalo
+//                     cada     elemento"      en el árbol"
+//                     elemento"
+//
+// Completo:
+//   "Del arreglo [8,3,10,...], para cada elemento,
+//    nómbralo v, e insértalo en el árbol."
+//
+// v => arbol.insertar(v) es una ARROW FUNCTION:
+//   (parámetro) => (código a ejecutar)
+//       ↑            ↑
+//   "recibe v"  "ejecuta esto con v"
+//
+// Equivale a escribir:
+//   arbol.insertar(8);
+//   arbol.insertar(3);
+//   arbol.insertar(10);
+//   arbol.insertar(1);
+//   ... (9 líneas)
+//
+// forEach hace eso automáticamente por cada elemento.
+// Puedes leerlo como: "aplica esta función a cada elemento."
 [8, 3, 10, 1, 6, 14, 4, 7, 13].forEach(v => arbol.insertar(v));
 
 console.log("Buscar 6:", arbol.buscar(6));   // true
