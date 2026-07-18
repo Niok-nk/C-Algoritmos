@@ -66,18 +66,12 @@ class ArbolBST<T extends number | string> {
 
 const agenda = new ArbolBST<string>();
 
-
-
-
-
-
-
-
+["Ana", "Carlos", "Beatriz", "David", "Elena", "Francisco"].forEach(v => agenda.insertar(v));
 
 
 
 
 // Pruebas:
-// console.log("Buscar Ana:", agenda.buscar("Ana"));     // true
-// console.log("Buscar Elena:", agenda.buscar("Elena")); // true
-// console.log("Buscar Mario:", agenda.buscar("Mario")); // false
+console.log("Buscar Ana:", agenda.buscar("Ana"));     // true
+console.log("Buscar Elena:", agenda.buscar("Elena")); // true
+console.log("Buscar Mario:", agenda.buscar("Mario")); // false
