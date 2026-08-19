@@ -73,15 +73,30 @@ function crearArbol(valores: number[]): NodoBST<number> | null {
 // ─────────────────────────────────────────────
 
 function inorder(nodo: NodoBST<number> | null): number[] {
-  // [ESCRIBE AQUÍ]
+  if (!nodo) return [];
+  return [
+    ...inorder(nodo.izquierda),
+    nodo.valor,
+    ...inorder(nodo.derecha)
+  ]
 }
 
 function preorder(nodo: NodoBST<number> | null): number[] {
-  // [ESCRIBE AQUÍ]
+  if (!nodo) return [];
+  return [
+    nodo.valor,
+    ...preorder(nodo.izquierda),
+    ...preorder(nodo.derecha)
+  ]
 }
 
 function postorder(nodo: NodoBST<number> | null): number[] {
-  // [ESCRIBE AQUÍ]
+  if (!nodo) return [];
+  return [
+    ...postorder(nodo.izquierda),
+    ...postorder(nodo.derecha),
+    nodo.valor
+  ]
 }
 
 // ── Pruebas (no toques) ──────────────────────
